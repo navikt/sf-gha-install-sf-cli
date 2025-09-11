@@ -1,17 +1,17 @@
-# <Navn på action>
+# Install SF CLI
 
-<Beskrivelse av action>
+Install SF CLI with `npm`
 
 ## Usage
 
 <!-- Start usage -->
 ```yaml
-- uses: navikt/<reponame>@<tag/sha>
+- uses: navikt/sf-gha-install-sf-cli@<tag/sha>
     with:
-        # Description of input parameter
-        # Required: true/false
-        # Default: ''
-        input-parameter: ''
+        # Version for the SF CLI version
+        # Required: false
+        # Default: '2.104.6'
+        version: ''
 ```
 <!-- end usage -->
 

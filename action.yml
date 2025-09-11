@@ -1,17 +1,19 @@
-name: Action Name
-description: Action description
+name: "Install SF"
+description: "Install SF cli with npm"
 inputs:
-  input-parameter:
-    description: Description of input parameter
-    required: true
+  version:
+    description: "Version for the SF CLI version"
+    default: "2.104.6"
+    required: false
 runs:
   using: "composite"
   steps:
-    
-    - name: Authenticate org
+    # Install SF CLI
+    - name: Install SF CLI
       run: |
-        echo "Hello World!"
-        echo "Input Parameter: $INPUT_PARAMETER"
+        npm install --global @salesforce/cli@"$SF_CLI_VERSION"
+        echo "sf version: $(sf --version)"
+        export SFDX_DISABLE_DNS_CHECK=true
       shell: bash
       env:
-        INPUT_PARAMETER: ${{ inputs.input-parameter }}
+        SF_CLI_VERSION: ${{ inputs.version }}
